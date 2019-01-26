@@ -5,49 +5,54 @@ using UnityEngine;
 public class GameMng : MonoBehaviour
 {
 	public static GameMng Instance;
-	public Player player;
-	public Luggage luggage;
-	public BaseTrick[] tricks;
-	public TuningFork[] forks;
-	public BaseEntity[] npcs;
+	public Camera cam;
+	public float camMoveSpd = 5f;
+	public Stage lastStage;
+	public Stage stage;
+	public Stage startStagePrefab;
+	private Vector3 m_camTp;
+
+	public void EnterNextStage(LevelTrigger t)
+	{
+		if(t.nextStage == null)
+		{
+			Debug.LogWarning("No next stage, ending");
+			return;
+		}
+		lastStage = stage;
+		lastStage.enabled = false;
+		lastStage.stageEnded = true;
+		lastStage.Destroy();
+
+		stage = Instantiate(t.nextStage, Vector3.zero, Quaternion.identity);
+		stage.OnStart();
+	}
 
 	private void Awake()
 	{
 		Instance = this;
+		cam = Camera.main;
+		m_camTp = cam.transform.position;
 	}
 
 	private void Start()
 	{
-		player = FindObjectOfType<Player>();
-		player.OnStart();
+		stage = FindObjectOfType<Stage>();
 
-		luggage = FindObjectOfType<Luggage>();
-		luggage.OnStart();
+		if (stage == null)
+			stage = Instantiate(startStagePrefab);
 
-		tricks = FindObjectsOfType<BaseTrick>();
-		foreach(var t in tricks)
-			t.OnStart();
-
-		forks = FindObjectsOfType<TuningFork>();
-		foreach(var f in forks)
-			f.OnStart();
-
-		foreach(var n in npcs)
-			n.OnStart();
+		stage.OnStart();
 	}
 
 	private void Update()
 	{
-		player.OnUpdate();
-		luggage.OnUpdate();
-		
-		foreach (var t in tricks)
-			t.OnUpdate();
+		cam.transform.position = Vector3.MoveTowards(cam.transform.position, m_camTp, camMoveSpd * Time.deltaTime);
+		if (stage != null)
+			stage.OnUpdate();
 
-		foreach(var f in forks)
-			f.OnUpdate();
-			
-		foreach(var n in npcs)
-			n.OnUpdate();
+
+		if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
+			EnterNextStage(stage.levelTrigger);
 	}
 }

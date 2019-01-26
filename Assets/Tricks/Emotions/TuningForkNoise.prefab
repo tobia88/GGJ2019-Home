@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trick: {fileID: 0}
-  sound: 1
+  sound: 0
   faceAnim: {fileID: 95344773753472870}
   tfAnim: {fileID: 95798831138623522}
 --- !u!61 &7295633195883847525

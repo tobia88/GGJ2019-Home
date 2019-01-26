@@ -8,6 +8,7 @@ TagManager:
   - Through
   - Noise
   - Music
+  - LevelTrigger
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - Player
   - TuningFork
   - Sound
-  - 
-  - 
-  - 
+  - Note
+  - Luggage
+  - LevelTrigger
   - 
   - 
   - 

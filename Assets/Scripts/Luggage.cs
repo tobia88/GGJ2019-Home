@@ -6,6 +6,7 @@ public class Luggage : BaseEntity {
 	public bool onPick = false;
 	public float grav = -10;
 	public float force = 10;
+	public float moveSpdWithLug = .7f;
 	public Animator effAnimCtrl;
 	private Vector2 m_vel;
 	private Controller2D m_ctrl;
@@ -21,9 +22,16 @@ public class Luggage : BaseEntity {
 		m_noiseTrigger.enabled = false;	
 	}
 
+	public void Reset()
+	{
+		onPick = false;
+		GetComponent<Collider2D>().enabled = true;
+	}
+
 	public void OnThrow(float dx)
 	{
 		m_vel = new Vector2(1f * dx, 1.2f).normalized * force;
+		Reset();
 		m_waitForGrounded = true;
 	}
 
@@ -48,9 +56,28 @@ public class Luggage : BaseEntity {
 		}
 	}
 
+	public void PlayMelody()
+	{
+		StartCoroutine(CreateMelody());
+	}
+
+	private IEnumerator CreateMelody()
+	{
+		m_noiseTrigger.transform.SetParent(null);
+		m_noiseTrigger.tag = "Music";
+		m_noiseTrigger.enabled = true;
+		effAnimCtrl.transform.position = transform.position;
+		effAnimCtrl.Play("anim_melody");
+
+		yield return new WaitForSeconds(0.1f);
+		m_noiseTrigger.transform.SetParent(transform);
+		m_noiseTrigger.enabled = false;
+	}
+
 	private IEnumerator CreateNoises()
 	{
 		m_noiseTrigger.transform.SetParent(null);
+		m_noiseTrigger.tag = "Noise";
 		m_noiseTrigger.enabled = true;
 
 		effAnimCtrl.transform.position = transform.position;

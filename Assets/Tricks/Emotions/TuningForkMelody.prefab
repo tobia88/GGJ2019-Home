@@ -65,6 +65,11 @@ PrefabInstance:
       propertyPath: tfAnim
       value: 
       objectReference: {fileID: 4048196792628141287}
+    - target: {fileID: 114870953439411926, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: sound
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 212946017921458408, guid: 4f7d48db5b91daa46a22f163921199c4,
         type: 3}
       propertyPath: m_Color.r

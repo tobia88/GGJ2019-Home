@@ -9,7 +9,6 @@ public class Player : BaseEntity
 	public float apex = .4f;
 	public Vector2 input;
 	public float mvSpd = 6f;
-	public float moveSpdWithLug = .5f;
 	public bool onPickupLuggage;
 	public Animator anim;
 	private float m_accAir = .2f;
@@ -71,7 +70,7 @@ public class Player : BaseEntity
 
 		}
 
-		var cspd = (onPickupLuggage) ? mvSpd * moveSpdWithLug : mvSpd;
+		var cspd = (onPickupLuggage) ? mvSpd * m_luggage.moveSpdWithLug : mvSpd;
 		var tvx = input.x * cspd;
 		m_vel.x = Mathf.SmoothDamp(m_vel.x, tvx, ref m_velSmooth, (m_ctrl.ci.btm) ? m_accGround : m_accAir);
 		m_vel.y += m_grav * Time.deltaTime;
@@ -90,7 +89,9 @@ public class Player : BaseEntity
 
 		if (m_vel.x != 0 && input.y == -1)
 		{
+			m_luggage.Reset();
 			// Put on ground
+
 		}
 		else
 		{
@@ -102,6 +103,7 @@ public class Player : BaseEntity
 	{
 		onPickupLuggage = true;
 		m_luggage.onPick = true;
+		m_luggage.GetComponent<Collider2D>().enabled = false;
 		m_luggage.transform.SetParent(m_lSlot);
 		m_luggage.transform.rotation = Quaternion.identity;
 		m_luggage.transform.localPosition = Vector3.zero;
