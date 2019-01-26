@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 32b303d8980642149af7ea072f95fce2
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _main/normal
+    400000: _main/normal/Transform
+    2800000: tex2d_0
+    2800002: tex2d_1
+    2800004: tex2d_2
+    7400000: anim_sad
+    7400002: anim_idle
+    7400004: anim_happy
+    7400006: anim_Untagged
+    9500000: _main/normal/Animator
+    21200000: _main/normal/SpriteRenderer
+    21300000: sprite_0
+    21300002: sprite_1
+    21300004: sprite_2
+    100100000: _main
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b1577cdc41d01fa4dbf68ad51122a765, type: 3}
+  pixelsPerUnit: 32
+  spriteAtlas: {instanceID: 0}
+  frameRate: 60
+  sortingLayerName: 
+  sortingOrder: 0
+  animatorCullingMode: 0
+  animatorController: {instanceID: 0}
+  errors: []

@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: e851b514618ea3e42913276498b82a4b
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: _main/player
+    400000: _main/player/Transform
+    2800000: tex2d_0
+    7400000: anim_idle
+    7400002: anim_Untagged
+    9500000: _main/player/Animator
+    21200000: _main/player/SpriteRenderer
+    21300000: sprite_0
+    100100000: _main
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b1577cdc41d01fa4dbf68ad51122a765, type: 3}
+  pixelsPerUnit: 32
+  spriteAtlas: {instanceID: 0}
+  frameRate: 60
+  sortingLayerName: 
+  sortingOrder: 0
+  animatorCullingMode: 0
+  animatorController: {instanceID: 0}
+  errors: []
