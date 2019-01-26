@@ -5,11 +5,26 @@ ScriptedImporter:
     100000: _main/player
     400000: _main/player/Transform
     2800000: tex2d_0
+    2800002: tex2d_1
+    2800004: tex2d_2
+    2800006: tex2d_3
+    2800008: tex2d_4
+    2800010: tex2d_5
+    2800012: tex2d_6
+    2800014: tex2d_7
     7400000: anim_idle
     7400002: anim_Untagged
+    7400004: anim_walk
     9500000: _main/player/Animator
     21200000: _main/player/SpriteRenderer
     21300000: sprite_0
+    21300002: sprite_1
+    21300004: sprite_2
+    21300006: sprite_3
+    21300008: sprite_4
+    21300010: sprite_5
+    21300012: sprite_6
+    21300014: sprite_7
     100100000: _main
   externalObjects: {}
   userData: 

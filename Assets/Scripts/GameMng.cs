@@ -7,6 +7,9 @@ public class GameMng : MonoBehaviour
 	public static GameMng Instance;
 	public Player player;
 	public Luggage luggage;
+	public BaseTrick[] tricks;
+	public TuningFork[] forks;
+	public BaseEntity[] npcs;
 
 	private void Awake()
 	{
@@ -20,11 +23,31 @@ public class GameMng : MonoBehaviour
 
 		luggage = FindObjectOfType<Luggage>();
 		luggage.OnStart();
+
+		tricks = FindObjectsOfType<BaseTrick>();
+		foreach(var t in tricks)
+			t.OnStart();
+
+		forks = FindObjectsOfType<TuningFork>();
+		foreach(var f in forks)
+			f.OnStart();
+
+		foreach(var n in npcs)
+			n.OnStart();
 	}
 
 	private void Update()
 	{
 		player.OnUpdate();
 		luggage.OnUpdate();
+		
+		foreach (var t in tricks)
+			t.OnUpdate();
+
+		foreach(var f in forks)
+			f.OnUpdate();
+			
+		foreach(var n in npcs)
+			n.OnUpdate();
 	}
 }

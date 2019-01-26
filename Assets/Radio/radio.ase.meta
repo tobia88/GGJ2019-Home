@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-guid: 412095774ccbdb74c992cfec6273c91f
+guid: 3c9930c9617022840af6e706a3129d17
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: _main/antenna
-    400000: _main/antenna/Transform
+    100000: _main/radio
+    400000: _main/radio/Transform
     2800000: tex2d_0
+    2800002: tex2d_1
+    2800004: tex2d_2
     7400000: anim_Untagged
-    9500000: _main/antenna/Animator
-    21200000: _main/antenna/SpriteRenderer
+    7400002: anim_idle
+    9500000: _main/radio/Animator
+    21200000: _main/radio/SpriteRenderer
     21300000: sprite_0
+    21300002: sprite_1
+    21300004: sprite_2
     100100000: _main
   externalObjects: {}
   userData: 

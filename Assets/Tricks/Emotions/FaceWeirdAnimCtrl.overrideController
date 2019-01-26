@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FaceWeirdAnimCtrl
+  m_Controller: {fileID: 9100000, guid: fa7523e8b412a3249bc29c9a5dde26b5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400004, guid: 32b303d8980642149af7ea072f95fce2, type: 3}
+    m_OverrideClip: {fileID: 7400004, guid: a9c040a707eb3264f8ebc53ef644c12b, type: 3}
+  - m_OriginalClip: {fileID: 7400002, guid: 32b303d8980642149af7ea072f95fce2, type: 3}
+    m_OverrideClip: {fileID: 7400002, guid: a9c040a707eb3264f8ebc53ef644c12b, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 32b303d8980642149af7ea072f95fce2, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: a9c040a707eb3264f8ebc53ef644c12b, type: 3}

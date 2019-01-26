@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4141707535727168709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1478788726303392, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_Name
+      value: TuningForkMelody
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574305579089768, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114870953439411926, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: faceAnim
+      value: 
+      objectReference: {fileID: 4046755425072679843}
+    - target: {fileID: 114870953439411926, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: tfAnim
+      value: 
+      objectReference: {fileID: 4048196792628141287}
+    - target: {fileID: 212946017921458408, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.98815805
+      objectReference: {fileID: 0}
+    - target: {fileID: 212946017921458408, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212946017921458408, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7028302
+      objectReference: {fileID: 0}
+    - target: {fileID: 212946017921458408, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 32b303d8980642149af7ea072f95fce2,
+        type: 3}
+    - target: {fileID: 95344773753472870, guid: 4f7d48db5b91daa46a22f163921199c4,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fa7523e8b412a3249bc29c9a5dde26b5, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f7d48db5b91daa46a22f163921199c4, type: 3}
+--- !u!95 &4048196792628141287 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95798831138623522, guid: 4f7d48db5b91daa46a22f163921199c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4141707535727168709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4046755425072679843 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95344773753472870, guid: 4f7d48db5b91daa46a22f163921199c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4141707535727168709}
+  m_PrefabAsset: {fileID: 0}

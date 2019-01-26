@@ -1,24 +1,21 @@
 fileFormatVersion: 2
-guid: 96078c5c736919145b1f1d766956c20d
+guid: a9c040a707eb3264f8ebc53ef644c12b
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: _main/luggage
-    400000: _main/luggage/Transform
+    100000: _main/weird
+    400000: _main/weird/Transform
     2800000: tex2d_0
     2800002: tex2d_1
     2800004: tex2d_2
-    2800006: tex2d_3
-    2800008: tex2d_4
-    7400000: anim_idle
-    7400002: anim_noise
-    7400004: anim_Untagged
-    9500000: _main/luggage/Animator
-    21200000: _main/luggage/SpriteRenderer
+    7400000: anim_sad
+    7400002: anim_idle
+    7400004: anim_happy
+    7400006: anim_Untagged
+    9500000: _main/weird/Animator
+    21200000: _main/weird/SpriteRenderer
     21300000: sprite_0
     21300002: sprite_1
     21300004: sprite_2
-    21300006: sprite_3
-    21300008: sprite_4
     100100000: _main
   externalObjects: {}
   userData: 

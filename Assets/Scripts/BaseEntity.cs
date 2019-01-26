@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class BaseEntity : MonoBehaviour
 {
-    public void OnStart() {}
-    public void OnUpdate() {}
+    public virtual void OnStart() {}
+    public virtual void OnUpdate() {}
 }

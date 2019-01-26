@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseTrick : MonoBehaviour
+public class BaseTrick : BaseEntity
 {
     protected bool m_unlocked;
 
@@ -9,11 +9,11 @@ public class BaseTrick : MonoBehaviour
         get { return m_unlocked; }
         set
         {
-            SetUnlocked(m_unlocked);
+            SetUnlocked(value);
         }
     }
 
-    private void SetUnlocked(bool v)
+    protected virtual void SetUnlocked(bool v)
     {
         m_unlocked = v;
     }

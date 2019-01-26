@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
-public class Player : MonoBehaviour
+public class Player : BaseEntity
 {
 	public float jh = 4;
 	public float apex = .4f;
@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 	public float mvSpd = 6f;
 	public float moveSpdWithLug = .5f;
 	public bool onPickupLuggage;
+	public Animator anim;
 	private float m_accAir = .2f;
 	private float m_accGround = .1f;
 
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
 
 	Controller2D m_ctrl;
 
-	public void OnStart()
+	public override void OnStart()
 	{
 		m_ctrl = GetComponent<Controller2D>();
 		m_ctrl.OnInit();
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
 		print("Grav: " + m_grav + " Jump Vel: " + m_jumpV);
 	}
 
-	public void OnUpdate()
+	public override void OnUpdate()
 	{
 		if (m_ctrl.ci.top || m_ctrl.ci.btm)
 		{
@@ -46,6 +47,8 @@ public class Player : MonoBehaviour
 
 		if (input.x != 0)
 			transform.localScale = new Vector3(input.x, 1f, 1f);
+
+		anim.SetFloat("InputX", Mathf.Abs(input.x));
 
 		if (Input.GetKeyDown(KeyCode.X) && m_ctrl.ci.btm && !onPickupLuggage)
 		{

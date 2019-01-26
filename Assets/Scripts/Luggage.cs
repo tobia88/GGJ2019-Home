@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Luggage : MonoBehaviour {
+public class Luggage : BaseEntity {
 	public bool onPick = false;
 	public float grav = -10;
 	public float force = 10;
+	public Animator effAnimCtrl;
 	private Vector2 m_vel;
 	private Controller2D m_ctrl;
 	private bool m_waitForGrounded;
-	private ParticleSystem m_noises;
 	private CircleCollider2D m_noiseTrigger;
 
-	public void OnStart()
+	public override void OnStart()
 	{
 		m_ctrl = GetComponent<Controller2D>();
 		m_ctrl.OnInit();
 
-		m_noises = transform.Find("NoisePart").GetComponent<ParticleSystem>();
-		m_noiseTrigger = transform.Find("NoisePart").GetComponent<CircleCollider2D>();
+		m_noiseTrigger = transform.Find("EffTrigger").GetComponent<CircleCollider2D>();
 		m_noiseTrigger.enabled = false;	
 	}
 
@@ -28,7 +27,7 @@ public class Luggage : MonoBehaviour {
 		m_waitForGrounded = true;
 	}
 
-	public void OnUpdate()
+	public override void OnUpdate()
 	{
 		if (!onPick)
 		{
@@ -51,10 +50,12 @@ public class Luggage : MonoBehaviour {
 
 	private IEnumerator CreateNoises()
 	{
-		m_noises.Play(true);
-		m_noises.transform.SetParent(null);
-		m_noises.transform.position = transform.position;
+		m_noiseTrigger.transform.SetParent(null);
 		m_noiseTrigger.enabled = true;
+
+		effAnimCtrl.transform.position = transform.position;
+		effAnimCtrl.Play("anim_noise");
+
 		yield return new WaitForSeconds(0.1f);
 		m_noiseTrigger.transform.SetParent(transform);
 		m_noiseTrigger.enabled = false;

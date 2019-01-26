@@ -11,13 +11,12 @@ ScriptedImporter:
     21200000: _main/luggage/SpriteRenderer
     21300000: sprite_0
     100100000: _main
-    2186277476908879412: ImportLogs
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: b1577cdc41d01fa4dbf68ad51122a765, type: 3}
-  pixelsPerUnit: 100
+  pixelsPerUnit: 32
   spriteAtlas: {instanceID: 0}
   frameRate: 60
   sortingLayerName: 
