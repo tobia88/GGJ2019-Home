@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.6843295
+  m_Radius: 1.35
 --- !u!1 &7911462555924069107
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +236,7 @@ MonoBehaviour:
   onPick: 0
   grav: -10
   force: 3
+  moveSpdWithLug: 0.7
   effAnimCtrl: {fileID: 7911462555879586338}
 --- !u!114 &7911462557399426894
 MonoBehaviour:

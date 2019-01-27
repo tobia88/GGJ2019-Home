@@ -13,7 +13,7 @@ public class Luggage : BaseEntity {
 	private bool m_waitForGrounded;
 	private CircleCollider2D m_noiseTrigger;
 
-	public override void OnStart()
+	public void Start()
 	{
 		m_ctrl = GetComponent<Controller2D>();
 		m_ctrl.OnInit();
@@ -26,16 +26,19 @@ public class Luggage : BaseEntity {
 	{
 		onPick = false;
 		GetComponent<Collider2D>().enabled = true;
+		m_waitForGrounded = false;	
+		m_noiseTrigger.enabled = false;
+		m_vel = Vector2.zero;
 	}
 
 	public void OnThrow(float dx)
 	{
-		m_vel = new Vector2(1f * dx, 1.2f).normalized * force;
 		Reset();
+		m_vel = new Vector2(1f * dx, 1.2f).normalized * force;
 		m_waitForGrounded = true;
 	}
 
-	public override void OnUpdate()
+	public void Update()
 	{
 		if (!onPick)
 		{
@@ -63,7 +66,6 @@ public class Luggage : BaseEntity {
 
 	private IEnumerator CreateMelody()
 	{
-		m_noiseTrigger.transform.SetParent(null);
 		m_noiseTrigger.tag = "Music";
 		m_noiseTrigger.enabled = true;
 		effAnimCtrl.transform.position = transform.position;
@@ -76,7 +78,6 @@ public class Luggage : BaseEntity {
 
 	private IEnumerator CreateNoises()
 	{
-		m_noiseTrigger.transform.SetParent(null);
 		m_noiseTrigger.tag = "Noise";
 		m_noiseTrigger.enabled = true;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
-public class Player : BaseEntity
+public class Player : MonoBehaviour
 {
 	public float jh = 4;
 	public float apex = .4f;
@@ -23,7 +23,7 @@ public class Player : BaseEntity
 
 	Controller2D m_ctrl;
 
-	public override void OnStart()
+	public void Start()
 	{
 		m_ctrl = GetComponent<Controller2D>();
 		m_ctrl.OnInit();
@@ -35,7 +35,13 @@ public class Player : BaseEntity
 		print("Grav: " + m_grav + " Jump Vel: " + m_jumpV);
 	}
 
-	public override void OnUpdate()
+	public void Reset()
+	{
+		m_luggage = null;
+		onPickupLuggage = false;
+	}
+
+	public void Update()
 	{
 		if (m_ctrl.ci.top || m_ctrl.ci.btm)
 		{
@@ -105,7 +111,7 @@ public class Player : BaseEntity
 		m_luggage.onPick = true;
 		m_luggage.GetComponent<Collider2D>().enabled = false;
 		m_luggage.transform.SetParent(m_lSlot);
-		m_luggage.transform.rotation = Quaternion.identity;
+		m_luggage.transform.localRotation = Quaternion.identity;
 		m_luggage.transform.localPosition = Vector3.zero;
 	}
 
@@ -114,6 +120,12 @@ public class Player : BaseEntity
 		if (c.CompareTag("Luggage"))
 		{
 			m_luggage = c.GetComponent<Luggage>();
+		}
+
+		if (c.CompareTag("Heart"))
+		{
+			Destroy(c.gameObject);
+			GameMng.Instance.Heart++;
 		}
 	}
 

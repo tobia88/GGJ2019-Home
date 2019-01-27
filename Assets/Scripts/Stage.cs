@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage : BaseEntity
+public class Stage : MonoBehaviour
 {
     public Player player;
     public Luggage luggage;
@@ -10,34 +10,14 @@ public class Stage : BaseEntity
     public Luggage luggagePrefab;
     public Transform playerStartPoint;
     public Transform luggageStartPoint;
-    public BaseTrick[] tricks;
-    public TuningFork[] forks;
-    public BaseEntity[] npcs;
-    public Radio[] radios;
-    public List<Note> notes = new List<Note>();
     public LevelTrigger levelTrigger;
-    public bool stageEnded;
 
-    public void Destroy()
+    public void Start()
     {
-        tricks= null;
-        forks = null;
-        npcs = null;
-        radios = null;
-        notes.Clear();
-        Destroy(gameObject);
-    }
-
-    public override void OnStart()
-    {
-        levelTrigger = GetComponentInChildren<LevelTrigger>();
-        levelTrigger.OnStart();
-
         player = FindObjectOfType<Player>();
         if (player == null)
         {
             player = Instantiate(playerPrefab, playerStartPoint.position, Quaternion.identity);
-            player.OnStart();
         }
         else
         {
@@ -48,59 +28,21 @@ public class Stage : BaseEntity
         if (luggage == null)
         {
             luggage = Instantiate(luggagePrefab, luggageStartPoint.position, Quaternion.identity);
-            luggage.OnStart();
         }
         else
         {
             luggage.transform.position = luggageStartPoint.position;
         }
 
-        tricks = FindObjectsOfType<BaseTrick>();
-        foreach (var t in tricks)
-            t.OnStart();
-
-        forks = FindObjectsOfType<TuningFork>();
-        foreach (var f in forks)
-            f.OnStart();
-
-        if (npcs != null)
-        {
-            foreach (var n in npcs)
-                n.OnStart();
-        }
-
-        radios = FindObjectsOfType<Radio>();
-        foreach (var r in radios)
-            r.OnStart();
+        levelTrigger = GetComponentInChildren<LevelTrigger>();
     }
-
-    public override void OnUpdate()
+    
+    public void Restart()
     {
-        if(stageEnded)
-            return;
+        player.transform.position = playerStartPoint.position;
+        luggage.transform.position = luggageStartPoint.position;
 
-        player.OnUpdate();
-        luggage.OnUpdate();
-
-        foreach (var t in tricks)
-        {
-            if (t != null)
-                t.OnUpdate();
-        }
-
-        foreach (var f in forks)
-            f.OnUpdate();
-
-        if (npcs != null)
-        {
-            foreach (var n in npcs)
-                n.OnUpdate();
-        }
-
-        foreach (var r in radios)
-            r.OnUpdate();
-
-        for (int i = notes.Count - 1; i >= 0; i--)
-            notes[i].OnUpdate();
+        player.Reset();
+        luggage.Reset();
     }
 }

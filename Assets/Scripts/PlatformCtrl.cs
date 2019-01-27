@@ -2,44 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlatformCtrl2D))]
 public class PlatformCtrl : BaseTrick
 {
-    protected Vector3 m_startPos, m_endPos;
-    protected Vector3 m_targetPos;
+    public Vector3 start;
+    public float spd;
 
-    public override void OnStart()
+    private Vector3 m_tp;
+    private Vector3 m_ws, m_we;
+    protected PlatformCtrl2D ctrl;
+
+    public void Start()
     {
-        m_endPos = transform.position;
-        transform.position = m_startPos = m_targetPos = transform.Find("StartPos").position;
+        ctrl = GetComponent<PlatformCtrl2D>();
+        ctrl.OnInit();
+
+        m_we = transform.position;
+        m_ws = transform.position + start;
+        transform.position = m_tp = m_ws;
     }
 
-    public override void OnUpdate()
+    public void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, m_targetPos, 0.1f);
+        var tp = Vector3.MoveTowards(transform.position, m_tp, spd * Time.deltaTime);
+        var dist = tp - transform.position;
+        ctrl.Move(dist);
     }
 
     protected override void SetUnlocked(bool v)
     {
         base.SetUnlocked(v);
-        m_targetPos = (v) ? m_endPos : m_startPos;
+        m_tp = (v) ? m_we : m_ws;
         Debug.Log("Result here: " + v );
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
+
+        var s = transform.position;
+        var e = transform.position + start;
         if (Application.isPlaying)
         {
-            Gizmos.DrawLine(m_startPos, m_endPos);
+            s = m_ws;
+            e = m_we;
         }
-        else
-        {
-            var t = transform.Find("StartPos");
-            if (t == null)
-                return;
 
-            Gizmos.DrawLine(t.position, transform.position);
-
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(s, Vector3.one * .1f);
+        Gizmos.DrawWireCube(e, Vector3.one * .1f);
+        Gizmos.DrawLine(s, e);
     }
 }

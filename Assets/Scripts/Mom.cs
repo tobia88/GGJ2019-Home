@@ -7,7 +7,7 @@ public class Mom : BaseEntity
     public TuningFork refTrick;
     public Animator m_animator;
 
-    public override void OnStart() 
+    public void Start() 
     {
         m_animator = GetComponentInChildren<Animator>();
         refTrick.onNoiseCb += (r) =>
@@ -16,7 +16,7 @@ public class Mom : BaseEntity
             m_animator.Play(animName);
         };
     }
-    public override void OnUpdate()
+    public void Update()
     {
         var dist = GameMng.Instance.stage.player.transform.position - transform.position;
         if (dist.x == 0)

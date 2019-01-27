@@ -9,6 +9,9 @@ TagManager:
   - Noise
   - Music
   - LevelTrigger
+  - Switch
+  - Heart
+  - RestartTrigger
   layers:
   - Default
   - TransparentFX

@@ -16,13 +16,16 @@ public class Controller2D : RaycastController
 {
 	public ColInfo ci;
 
-	public void Move(Vector2 v)
+	public void Move(Vector2 v, bool standing = false)
 	{
 		UdInfo();
 		ci.Reset();
 		if (v.x != 0) HColTest(ref v);
 		if (v.y != 0) VColTest(ref v);
 		transform.Translate(v);
+
+		if (standing)
+			ci.btm = true;
 	}
 
 	protected void HColTest(ref Vector2 v)
@@ -66,10 +69,18 @@ public class Controller2D : RaycastController
 			var end = start + Vector2.up * rl * sign;
 
 			var hit = Physics2D.Linecast(start, end, groundMask);
+			Collider2D c = null;
 			if (hit)
 			{
 				if (hit.collider.CompareTag("Through") && sign == 1)
 					continue;
+
+				if (hit.collider.CompareTag("Switch") && c != hit.collider)
+				{
+					c = hit.collider;
+					var s = hit.collider.GetComponent<Switch>();
+					s.Unlocked = !s.Unlocked;
+				}
 
 				v.y = (hit.distance - SW) * sign;
 				rl = hit.distance;

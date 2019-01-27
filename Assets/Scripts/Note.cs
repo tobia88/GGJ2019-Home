@@ -7,14 +7,14 @@ public class Note : BaseEntity
     private Vector3 m_tp;
     private int m_index;
 
-    public override void OnStart()
+    public void Start()
     {
         transform.position = paths[0];
         m_index++;
         m_tp = paths[m_index];
     }
 
-    public override void OnUpdate()
+    public void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, m_tp, spd * Time.deltaTime);
         if (transform.position == m_tp)
@@ -50,6 +50,5 @@ public class Note : BaseEntity
     private void Destroy()
     {
         Destroy(gameObject);
-        GameMng.Instance.stage.notes.Remove(this);
     }
 }

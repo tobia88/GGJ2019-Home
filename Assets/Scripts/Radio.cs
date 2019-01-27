@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Radio : BaseEntity
+public class Radio : MonoBehaviour
 {
     public Note prefab;
     public Vector3[] path;
@@ -11,7 +11,7 @@ public class Radio : BaseEntity
     private float m_delay;
     private Vector3[] m_worldPaths;
 
-    public override void OnStart()
+    public void Start()
     {
         m_worldPaths = new Vector3[path.Length];
         for (int i = 0; i < path.Length; i++)
@@ -20,7 +20,7 @@ public class Radio : BaseEntity
         }
     }
 
-    public override void OnUpdate()
+    public void Update()
     {
         m_delay -= Time.deltaTime;
         if (m_delay <= 0)
@@ -35,9 +35,6 @@ public class Radio : BaseEntity
         var n = Instantiate<Note>(prefab);
         n.paths = m_worldPaths;
         n.spd = spd;
-        GameMng.Instance.stage.notes.Add(n);
-        n.OnStart();
-        Debug.Log("Spawning");
     }
 
     private void OnDrawGizmos()

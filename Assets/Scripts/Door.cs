@@ -10,7 +10,7 @@ public class Door : BaseTrick
     private Vector3 m_tp;
     private Vector3 m_ws, m_we;
     private Animator m_animator;
-    public override void OnStart()
+    public void Start()
     {
         m_ws = transform.position;
         m_we = transform.position + end;
@@ -38,7 +38,7 @@ public class Door : BaseTrick
         m_tp = m_we;
     }
 
-    public override void OnUpdate()
+    public void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, m_tp, spd * Time.deltaTime);
     }
