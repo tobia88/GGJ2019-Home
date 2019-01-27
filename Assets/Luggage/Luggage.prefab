@@ -237,6 +237,14 @@ MonoBehaviour:
   grav: -10
   force: 3
   moveSpdWithLug: 0.7
+  goodsAC:
+  - {fileID: 8300000, guid: c571d4e650d79a44984edffabfcbe5f3, type: 3}
+  - {fileID: 8300000, guid: 076f402394e84bb468054663eafb2f47, type: 3}
+  - {fileID: 8300000, guid: 10f75b3a8ac1f44418c7c0ccb96ef112, type: 3}
+  badAC:
+  - {fileID: 8300000, guid: f9e6d7a35c4ab1043bd51f679aaa5fda, type: 3}
+  - {fileID: 8300000, guid: 4ebd1094bec10d34980c85ea172ea66c, type: 3}
+  - {fileID: 8300000, guid: d47ce88c8d5f5484dad3dad982b85805, type: 3}
   effAnimCtrl: {fileID: 7911462555879586338}
 --- !u!114 &7911462557399426894
 MonoBehaviour:
@@ -345,6 +353,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: melody
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 01c286e54a691b14690261b7acccc1c5, type: 2}
+    - target: {fileID: 21200000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 970830003
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -389,18 +409,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 970830003
-      objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 01c286e54a691b14690261b7acccc1c5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fac70bb86b337b40bd9737942c55999, type: 3}
 --- !u!4 &7911462555889391042 stripped
@@ -470,13 +478,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: de1d8209ef6f2e84e9804c58f3be2f1f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: de1d8209ef6f2e84e9804c58f3be2f1f, type: 3}
       propertyPath: m_Controller
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: de1d8209ef6f2e84e9804c58f3be2f1f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de1d8209ef6f2e84e9804c58f3be2f1f, type: 3}

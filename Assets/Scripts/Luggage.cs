@@ -7,6 +7,8 @@ public class Luggage : BaseEntity {
 	public float grav = -10;
 	public float force = 10;
 	public float moveSpdWithLug = .7f;
+	public AudioClip[] goodsAC;
+	public AudioClip[] badAC;
 	public Animator effAnimCtrl;
 	private Vector2 m_vel;
 	private Controller2D m_ctrl;
@@ -70,6 +72,7 @@ public class Luggage : BaseEntity {
 		m_noiseTrigger.enabled = true;
 		effAnimCtrl.transform.position = transform.position;
 		effAnimCtrl.Play("anim_melody");
+		GameMng.Instance.aSrc.PlayOneShot(goodsAC[Random.Range(0, badAC.Length)]);
 
 		yield return new WaitForSeconds(0.1f);
 		m_noiseTrigger.transform.SetParent(transform);
@@ -83,6 +86,8 @@ public class Luggage : BaseEntity {
 
 		effAnimCtrl.transform.position = transform.position;
 		effAnimCtrl.Play("anim_noise");
+
+		GameMng.Instance.aSrc.PlayOneShot(badAC[Random.Range(0, badAC.Length)]);
 
 		yield return new WaitForSeconds(0.1f);
 		m_noiseTrigger.transform.SetParent(transform);

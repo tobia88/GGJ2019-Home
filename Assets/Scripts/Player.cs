@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
 		if (c.CompareTag("Heart"))
 		{
 			Destroy(c.gameObject);
-			GameMng.Instance.Heart++;
+			GameMng.Instance.GetHeart();
 		}
 	}
 

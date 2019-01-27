@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: 7a6603e5e9049094296d73e0123d7b95
+guid: 688f858650a9abf40927c9ec525ba15f
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: _main/board
-    400000: _main/board/Transform
+    100002: _main/bubble
+    400002: _main/bubble/Transform
     2800000: tex2d_0
-    7400000: anim_Untagged
-    9500000: _main/board/Animator
-    21200000: _main/board/SpriteRenderer
+    7400000: anim_show
+    7400002: anim_Untagged
+    9500002: _main/bubble/Animator
+    21200002: _main/bubble/SpriteRenderer
     21300000: sprite_0
     100100000: _main
   externalObjects: {}

@@ -11,6 +11,8 @@ public class GameMng : MonoBehaviour
 	public Stage stage;
 	public Stage startStagePrefab;
 	public int Heart;
+	public AudioSource aSrc;
+	public AudioClip heartAC;
 	private Vector3 m_camTp;
 
 	public void EnterNextStage(LevelTrigger t)
@@ -26,11 +28,18 @@ public class GameMng : MonoBehaviour
 		stage = Instantiate(t.nextStage, Vector3.zero, Quaternion.identity);
 	}
 
+	public void GetHeart()
+	{
+		aSrc.PlayOneShot(heartAC);
+		Heart++;
+	}
+
 	private void Awake()
 	{
 		Instance = this;
 		cam = Camera.main;
 		m_camTp = cam.transform.position;
+		aSrc = GetComponent<AudioSource>();
 	}
 
 	private void Start()

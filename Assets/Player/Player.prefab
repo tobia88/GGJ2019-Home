@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaad50dd8b6c6664faf157dc0f738be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jh: 1
+  jh: 1.2
   apex: 0.4
   input: {x: 0, y: 0}
   mvSpd: 2
@@ -190,6 +190,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8326302fec402c844bf0fde2a2c07ccc, type: 2}
+    - target: {fileID: 21200000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -234,14 +242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 8326302fec402c844bf0fde2a2c07ccc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e851b514618ea3e42913276498b82a4b, type: 3}
 --- !u!4 &1206911875784224090 stripped
